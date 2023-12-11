@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. student/student.proto
+
+option go_package = "github.com/lukmansjy/grpc-basic/learn-grpc-01/student";
+
+package student;
+
+service DataStudent {
+  rpc FindStudentByEmail(Student) returns (Student);
+}
+
+message Student {
+  string name = 1;
+  uint32 age = 2;
+  string email = 3;
+}

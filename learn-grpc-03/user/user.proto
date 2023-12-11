@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/lukmansjy/grpc-basic/learn-grpc-03/user";
+
+// protoc --go_out=paths=source_relative:. --go_grpc_out=paths=source_relative:. user.proto
+
+message UserRequest {
+  string email = 1;
+}
+
+message UserResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+}
+
+service User {
+  rpc UnaryGetUser(UserRequest) returns (UserResponse) {}
+}
